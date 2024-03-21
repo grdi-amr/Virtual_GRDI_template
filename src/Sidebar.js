@@ -1,49 +1,36 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Nav,  Form } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-import jsonData from './templates/schema.json';
 
 
-const Sidebar = () => {
+
+const Sidebar = ({setSelectedCheckboxes, selectedCheckboxes, data}) => {
 
   
-const [data, setData] = useState(null);
-const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
-
-  useEffect(() => {
-    // Read the JSON file and set the data once
-    setData(jsonData);
-
-    const initializeCheckboxes = (obj, path = '') => {
-      Object.keys(obj).forEach((key) => {
-        const newPath = path ? `${path}.${key}` : key;
-        setSelectedCheckboxes((prevState) => ({
-          ...prevState,
-          [newPath]: false,
-        }));
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
-          initializeCheckboxes(obj[key], newPath);
-        }
-      });
-    };
-  
-    initializeCheckboxes(jsonData);
-    //console.log("INHERE",selectedCheckboxes)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const toggleCheckbox = (check) => {
     setSelectedCheckboxes((prevState) => {
       //console.log("taaki",check['key'])
       const updatedState = { ...prevState };
       
-  
+      let flag = 0;
       // Iterate over the keys and update checkboxes with the same prefix
       Object.keys(updatedState).forEach((key) => {
        // console.log(key,check)
         if (key.startsWith(`${check}.`) || (key === check)) {
           //console.log("here happens")
-          updatedState[key] = !prevState[key]; // Toggle checkbox value
+          if (key === check){
+            updatedState[key] = !prevState[key];
+            flag = 1;
+          }else{
+            if (flag === 1){
+              updatedState[key] = updatedState[check];
+            }else{
+              updatedState[key] = !prevState[key];
+            }
+
+            
+          }
+           // Toggle checkbox value
           //console.log(updatedState[key])
         }
       });
@@ -84,7 +71,7 @@ const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
         );
       } else {
         //const prefix = `${path}.${subKey}`
-        console.log(prefix)
+        //console.log(prefix)
         // Render a regular Form.Check component
         return (
           <Form.Check 
@@ -99,6 +86,8 @@ const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
     });
   };
 
+
+  
 
   const accordionItems = keys && keys.map((key, index) => {
     
@@ -126,7 +115,7 @@ const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
   
   return (
     <Nav defaultActiveKey="/home" className="flex-column">
-      <Accordion  defaultActiveKey={null} style={{ width: '500px' }}>
+      <Accordion  defaultActiveKey={null} style={{ width: '530px' }}>
       {accordionItems}
     </Accordion>
     </Nav>
