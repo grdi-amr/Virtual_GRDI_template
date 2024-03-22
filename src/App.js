@@ -1,15 +1,21 @@
 //import logo from './logo.svg';
-import React, {useState, useEffect} from 'react';
+import React, {useRef,useState, useEffect} from 'react';
+import { registerAllModules } from 'handsontable/registry';
 import './App.css';
 import Home from './Home';
 import Sidebar from './Sidebar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import jsonData from './templates/schema.json';
+import DropDownMenu from './DropDownMenu';
+import * as XLSX from 'xlsx';
 
 
 function App() {
   const [data, setData] = useState(null);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
+  // register Handsontable's modules
+    registerAllModules();
+
 
   useEffect(() => {
     // Read the JSON file and set the data once
@@ -34,10 +40,40 @@ function App() {
   }, []);
 
   
+  //functions to export data
+  const hotRef= useRef(null);
+  console.log("OLHA AI",hotRef)
+  const buttonClickCallback = () => {
+    const hot = hotRef.current.hotInstance;
+    console.log('output',hot)
+    const exportData = hot.getData(); // Get the data from the Handsontable instance
+    console.log('getdata',hot)
+    const exportHeaders = hot.getColHeader(); // Get the column headers
+    console.log('getheader',hot)
+
+  // Combine the column headers and data
+    const exportArray = [exportHeaders].concat(exportData);
+
+    // Convert the data to Excel workbook
+    const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(exportArray);
+  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+  // Save the Excel file
+  XLSX.writeFile(wb, 'Handsontable-Excel-file.xlsx');
+  };
+
 
   return (
     <Router>
       <div className="container-fluid">
+      <div className="row">
+          <div className="col-md-12 mb-3">
+            <DropDownMenu 
+            buttonClickCallback={buttonClickCallback}
+            />
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-3">
             <Sidebar 
@@ -50,6 +86,7 @@ function App() {
             <div className="offset-md-1 col-md-11"> {/* Adjust offset as needed */}
               <Home 
               selectedCheckboxes={selectedCheckboxes}
+              hotRef={hotRef}
               />
             </div>
           </div>
