@@ -66,33 +66,29 @@ function App() {
 
   return (
     <Router>
-      <div className="container-fluid">
+    <div className="container-fluid">
       <div className="row">
-          <div className="col-md-12 mb-3">
-            <DropDownMenu 
-            buttonClickCallback={buttonClickCallback}
-            />
-          </div>
+        <div className="col-md-12 mb-3">
+          <DropDownMenu buttonClickCallback={buttonClickCallback} />
         </div>
-        <div className="row">
-          <div className="col-md-3">
-            <Sidebar 
-              setSelectedCheckboxes={setSelectedCheckboxes}
-              selectedCheckboxes = {selectedCheckboxes}
-              data ={data} 
-              />
-          </div>
-          <div className="col-md-9">
-            <div className="offset-md-1 col-md-11"> {/* Adjust offset as needed */}
-              <Home 
-              selectedCheckboxes={selectedCheckboxes}
-              hotRef={hotRef}
-              />
-            </div>
+      </div>
+      <div className="row">
+        <div className="col-md-3">
+          <Sidebar
+            setSelectedCheckboxes={setSelectedCheckboxes}
+            selectedCheckboxes={selectedCheckboxes}
+            data={data}
+          />
+        </div>
+        <div className="col-md-9">
+          <div className="offset-md-1 col-md-11">
+            {/* Adjust offset as needed */}
+            <Home selectedCheckboxes={selectedCheckboxes} hotRef={hotRef} />
           </div>
         </div>
       </div>
-    </Router>
+    </div>
+  </Router>
   );
 }
 
