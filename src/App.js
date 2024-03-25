@@ -6,6 +6,7 @@ import Home from './Home';
 import Sidebar from './Sidebar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import jsonData from './templates/schema.json';
+import jsonVoc from './templates/schema_data_harmonizer.json';
 import DropDownMenu from './DropDownMenu';
 import * as XLSX from 'xlsx';
 
@@ -13,6 +14,7 @@ import * as XLSX from 'xlsx';
 function App() {
   const [data, setData] = useState(null);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
+  const [vocabulary, setVoc] = useState(null);
   // register Handsontable's modules
     registerAllModules();
 
@@ -20,6 +22,8 @@ function App() {
   useEffect(() => {
     // Read the JSON file and set the data once
     setData(jsonData);
+    setVoc (jsonVoc);
+    
 
     const initializeCheckboxes = (obj, path = '') => {
       Object.keys(obj).forEach((key) => {
@@ -60,7 +64,7 @@ function App() {
   XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
   // Save the Excel file
-  XLSX.writeFile(wb, 'Handsontable-Excel-file.xlsx');
+  XLSX.writeFile(wb, 'GRDI-AMR2_template.xlsx');
   };
 
 
@@ -83,7 +87,11 @@ function App() {
         <div className="col-md-9">
           <div className="offset-md-1 col-md-11">
             {/* Adjust offset as needed */}
-            <Home selectedCheckboxes={selectedCheckboxes} hotRef={hotRef} />
+            <Home 
+            selectedCheckboxes={selectedCheckboxes} 
+            hotRef={hotRef}
+            vocabulary = {vocabulary}
+             />
           </div>
         </div>
       </div>
