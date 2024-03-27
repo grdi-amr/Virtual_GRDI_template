@@ -23,6 +23,7 @@ function App() {
     // Read the JSON file and set the data once
     setData(jsonData);
     setVoc (jsonVoc);
+    //console.log(jsonVoc)
     
 
     const initializeCheckboxes = (obj, path = '') => {
@@ -85,7 +86,7 @@ function App() {
           />
         </div>
         <div className="col-md-9">
-          <div className="offset-md-1 col-md-11">
+          <div className="col-md-10 offset-md-3">
             {/* Adjust offset as needed */}
             <Home 
             selectedCheckboxes={selectedCheckboxes} 
