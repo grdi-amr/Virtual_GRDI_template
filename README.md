@@ -1,4 +1,4 @@
-====
+
 # Virtual_GRDI_template
 
 To run locally just unzip the content of Virtual_GRDI_template.zip at zipped_html folder. click twice in the index.html to open the app.
