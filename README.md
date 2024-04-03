@@ -1,4 +1,4 @@
-# React Data Harmonizer Web App
+# Virtual GRDI-AMR2 template Web App
 
 This is a React web application that utilizes the latest version of the Data Harmonizer base, specifically using the GRDI-AMR2 version 9.0 template. The purpose of this application is to provide a user-friendly interface for visualizing and manipulating spreadsheet data according to the GRDI-AMR2 template.
 
@@ -47,4 +47,3 @@ Additionally, a build version of the web app has been zipped and is available in
 
 ## Functionality
 The web app allows users to visualize a spreadsheet containing the "Samples" field. Additional columns can be added using the sidebar on the left. Once the spreadsheet is filled out, users can use the "Import" button in the menu to download the spreadsheet in XLS format. 
-
