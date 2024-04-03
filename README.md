@@ -19,3 +19,32 @@ cd Virtual_GRDI_template
 ```
 
 
+3. Install the required dependencies using npm:
+```
+npm install
+```
+
+## Usage
+After installing the dependencies, you can run the development server using the following command:
+
+```
+npm start
+```
+
+This will start the development server, and you can view the web app by navigating to http://localhost:3000 in your web browser.
+
+## Building for Production
+To build the application for production, you can use the following command:
+
+```
+npm run build
+```
+
+This will create a production-ready build of the application in the build directory.
+
+##Zipped HTML Version
+Additionally, a build version of the web app has been zipped and is available in the zipped_html directory. To use this version, simply unzip the contents and locate the index.html file. You can then open this file in any web browser by double-clicking on it.
+
+## Functionality
+The web app allows users to visualize a spreadsheet containing the "Samples" field. Additional columns can be added using the sidebar on the left. Once the spreadsheet is filled out, users can use the "Import" button in the menu to download the spreadsheet in XLS format. The GRD-AMR2 template used as background is the 9.0.0. Keep an eye for updates.
+
