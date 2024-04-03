@@ -9,4 +9,11 @@ To get started with this project, you'll need to have Node.js and npm installed 
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/ComputationalPathogens/Virtual_GRDI_template.git
+
+2. Navigate into the project directory:
+
+```bash
+cd Virtual_GRDI_template
+
+
