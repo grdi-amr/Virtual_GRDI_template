@@ -1,17 +1,12 @@
+# React Data Harmonizer Web App
 
-# Virtual_GRDI_template
+This is a React web application that utilizes the latest version of the Data Harmonizer base, specifically using the GRDI-AMR2 version 9.0 template. The purpose of this application is to provide a user-friendly interface for visualizing and manipulating spreadsheet data according to the GRDI-AMR2 template.
 
-To run locally just unzip the content of Virtual_GRDI_template.zip at zipped_html folder. click twice in the index.html to open the app.
+## Installation
 
-The template is built using the version 9.0.0 used in the latest version of Data Harmonizer.
+To get started with this project, you'll need to have Node.js and npm installed on your machine. Once you have those installed, you can follow these steps:
 
+1. Clone this repository to your local machine:
 
-
-In order to run locally as Java script server runs first to install dependencies:
-
-npm install
-
-Then to start it:
-
-npm run start
-
+```bash
+git clone https://github.com/your-username/your-repository.git
