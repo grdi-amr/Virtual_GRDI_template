@@ -10,6 +10,7 @@ To get started with this project, you'll need to have Node.js and npm installed 
 
 ```bash
 git clone https://github.com/ComputationalPathogens/Virtual_GRDI_template.git
+```bash
 
 2. Navigate into the project directory:
 
