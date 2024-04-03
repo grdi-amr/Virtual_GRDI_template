@@ -42,7 +42,7 @@ npm run build
 
 This will create a production-ready build of the application in the build directory.
 
-##Zipped HTML Version
+## Zipped HTML Version
 Additionally, a build version of the web app has been zipped and is available in the zipped_html directory. To use this version, simply unzip the contents and locate the index.html file. You can then open this file in any web browser by double-clicking on it.
 
 ## Functionality
