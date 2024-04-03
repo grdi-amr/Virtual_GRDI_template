@@ -46,5 +46,5 @@ This will create a production-ready build of the application in the build direct
 Additionally, a build version of the web app has been zipped and is available in the zipped_html directory. To use this version, simply unzip the file **Virtual_GRDI_template.zip** and locate the index.html file. You can then open this file in any web browser by double-clicking on it.
 
 ## Functionality
-The web app allows users to visualize a spreadsheet containing the "Samples" field. Additional columns can be added using the sidebar on the left. Once the spreadsheet is filled out, users can use the "Import" button in the menu to download the spreadsheet in XLS format. The GRD-AMR2 template used as background is the 9.0.0. Keep an eye for updates.
+The web app allows users to visualize a spreadsheet containing the "Samples" field. Additional columns can be added using the sidebar on the left. Once the spreadsheet is filled out, users can use the "Import" button in the menu to download the spreadsheet in XLS format. 
 
