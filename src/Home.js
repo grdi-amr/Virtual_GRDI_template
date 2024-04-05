@@ -113,6 +113,7 @@ return (
       columns={dropdown_options}
       contextMenu={true}
       height="auto"
+      copyPaste={true}
       width="auto"
       /*columns={[
         { data: 'id' },
